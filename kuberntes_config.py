@@ -1,7 +1,7 @@
 import os
 
 # repo_folder = os.environ.get('$REPO_NAME', 'REPO_NAME')
-image_name = os.environ.get('$IMAGE_NAME', 'IMAGE_NAME')
+image_name = os.environ['IMAGE_NAME']
 
 dockerfile_content = f"""
 
