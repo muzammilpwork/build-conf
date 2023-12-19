@@ -1,6 +1,6 @@
 import os
 
-repo_folder = os.environ.get('$REPO_NAME', 'REPO_NAME')
+# repo_folder = os.environ.get('$REPO_NAME', 'REPO_NAME')
 image_name = os.environ.get('$IMAGE_NAME', 'IMAGE_NAME')
 
 dockerfile_content = f"""
@@ -32,7 +32,7 @@ RUN apt-get install -y python3-dev libxml2-dev libxslt1-dev zlib1g-dev libsasl2-
 
 WORKDIR /opt/odoo
 
-COPY ./{repo_folder} .
+COPY ./repo_code .
 
 RUN pip3 install -r  requirements.txt
 CMD ["./odoo-bin", "-c", "/opt/odoo/config/odoo.conf"]
