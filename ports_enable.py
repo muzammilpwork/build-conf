@@ -13,6 +13,6 @@ sce_grp = result.stdout
 for port in port_list:
     aws_command = ["aws", "ec2", "authorize-security-group-ingress", "--group-id", sce_grp, "--protocol", "tcp", "--port", port, "--cidr", "0.0.0.0/0"]
     # cmd = f"aws ec2 authorize-security-group-ingress --group-id {sce_grp} --protocol tcp --port {port} --cidr 0.0.0.0/0"
-    print('####### ', cmd)
+    print('####### ', aws_command)
     # os.system(cmd)
     subprocess.run(aws_command, check=True)
