@@ -17,7 +17,7 @@ for port in port_list:
     # # os.system(cmd)
     # subprocess.run(aws_command, check=True)
     
-    aws_command = ["aws", "ec2", "authorize-security-group-ingress", "--group-id", sce_grp, "--protocol", "tcp", "--port", port, "--cidr", "0.0.0.0/0"]
+    aws_command = ["aws", "ec2", "authorize-security-group-ingress", "--group-id", str(sce_grp).strip(), "--protocol", "tcp", "--port", str(port).strip(), "--cidr", "0.0.0.0/0"]
     # Execute the command using subprocess and capture output
     result = subprocess.run(aws_command, capture_output=True, text=True)
     
