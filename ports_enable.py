@@ -11,8 +11,22 @@ else:
     print("Command failed. Error message:", result.stderr)
 sce_grp = result.stdout
 for port in port_list:
+    # aws_command = ["aws", "ec2", "authorize-security-group-ingress", "--group-id", sce_grp, "--protocol", "tcp", "--port", port, "--cidr", "0.0.0.0/0"]
+    # # cmd = f"aws ec2 authorize-security-group-ingress --group-id {sce_grp} --protocol tcp --port {port} --cidr 0.0.0.0/0"
+    # print('####### ', aws_command)
+    # # os.system(cmd)
+    # subprocess.run(aws_command, check=True)
+    
     aws_command = ["aws", "ec2", "authorize-security-group-ingress", "--group-id", sce_grp, "--protocol", "tcp", "--port", port, "--cidr", "0.0.0.0/0"]
-    # cmd = f"aws ec2 authorize-security-group-ingress --group-id {sce_grp} --protocol tcp --port {port} --cidr 0.0.0.0/0"
-    print('####### ', aws_command)
-    # os.system(cmd)
-    subprocess.run(aws_command, check=True)
+    # Execute the command using subprocess and capture output
+    result = subprocess.run(aws_command, capture_output=True, text=True)
+    
+    # Print stdout and stderr
+    print("STDOUT:", result.stdout)
+    print("STDERR:", result.stderr)
+    
+    # Check if the command was successful
+    if result.returncode == 0:
+        print("Command executed successfully.")
+    else:
+        print("Command failed with return code:", result.returncode)
