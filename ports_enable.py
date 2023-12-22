@@ -9,3 +9,4 @@ else:
     print("Command failed. Error message:", result.stderr)
 sce_grp = result.stdout
 os.environ["SCE_GRP"] = str(sce_grp).strip()
+print("SCE_GRP:", os.environ["SCE_GRP"])
