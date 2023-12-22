@@ -8,5 +8,5 @@ if result.returncode == 0:
 else:
     print("Command failed. Error message:", result.stderr)
 sce_grp = result.stdout
-os.environ["SCE_GRP"] = str(sce_grp).strip()
-print("SCE_GRP:", os.environ["SCE_GRP"])
+with open("sce_grp.txt", "w") as file:
+    file.write(str(sce_grp).strip())
