@@ -60,9 +60,9 @@ spec:
     - name: POSTGRES_DB
       value: postgres
     - name: POSTGRES_PASSWORD
-      value: odoo2
+      value: odoo
     - name: POSTGRES_USER
-      value: odoo2
+      value: odoo
     - name: PGDATA
       value: /var/lib/postgresql/data/pgdata
     """
@@ -71,39 +71,39 @@ spec:
 with open("postgres-pod.yml", "w") as pp_writer:
     pp_writer.write(postgres_pod_yml_content)
 
-# postgres_service_yml_content = """
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: postgres-service
-# spec:
-#   type: NodePort
-#   selector:
-#     app.kubernetes.io/name: postgres-db
-#   ports:
-#     - protocol: TCP
-#       port: 5432
-#       targetPort: 5432
-#       nodePort: 31000
-# """       
-# with open("postgres-service.yml", "w") as ps_writer:
-#     ps_writer.write(postgres_service_yml_content)
-
 postgres_service_yml_content = """
 apiVersion: v1
 kind: Service
 metadata:
   name: postgres-service2
 spec:
+  type: NodePort
   selector:
     app.kubernetes.io/name: postgres-db2
   ports:
     - protocol: TCP
-      port: 5433
-      targetPort: 5433
-"""
+      port: 5432
+      targetPort: 5432
+      nodePort: 31000
+"""       
 with open("postgres-service.yml", "w") as ps_writer:
     ps_writer.write(postgres_service_yml_content)
+
+# postgres_service_yml_content = """
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: postgres-service2
+# spec:
+#   selector:
+#     app.kubernetes.io/name: postgres-db2
+#   ports:
+#     - protocol: TCP
+#       port: 5433
+#       targetPort: 5433
+# """
+# with open("postgres-service.yml", "w") as ps_writer:
+#     ps_writer.write(postgres_service_yml_content)
 
 
 odoo_app_pod_yml_content = f"""
@@ -125,34 +125,34 @@ with open("odoo-pod.yml", "w") as op_writer:
     op_writer.write(odoo_app_pod_yml_content)
 
 
-# odoo_app_service_yml_content = """
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: odoo-service
-# spec:
-#   type: NodePort
-#   selector:
-#     app.kubernetes.io/name: odoo-app
-#   ports:
-#     - protocol: TCP
-#       port: 8069
-#       targetPort: 8069
-#       nodePort: 31001
-#     """
 odoo_app_service_yml_content = """
 apiVersion: v1
 kind: Service
 metadata:
   name: odoo-service2
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app.kubernetes.io/name: odoo-app2
   ports:
     - protocol: TCP
       port: 8069
       targetPort: 8069
-"""
+      nodePort: 31001
+    """
+# odoo_app_service_yml_content = """
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: odoo-service2
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     app.kubernetes.io/name: odoo-app2
+#   ports:
+#     - protocol: TCP
+#       port: 8069
+#       targetPort: 8069
+# """
 with open("odoo-service.yml", "w") as os_writer:
     os_writer.write(odoo_app_service_yml_content)
