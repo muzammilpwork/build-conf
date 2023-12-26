@@ -60,9 +60,9 @@ spec:
     - name: POSTGRES_DB
       value: postgres
     - name: POSTGRES_PASSWORD
-      value: odoo
+      value: odoo2
     - name: POSTGRES_USER
-      value: odoo
+      value: odoo2
     - name: PGDATA
       value: /var/lib/postgresql/data/pgdata
     """
