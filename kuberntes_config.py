@@ -35,7 +35,7 @@ WORKDIR /opt/odoo
 COPY ./repo_code .
 
 RUN pip3 install -r  requirements.txt
-CMD ["./odoo-bin", "-c", "/opt/odoo/config/odoo.conf", "--xmlrpc-port=8070"]
+CMD ["./odoo-bin", "-c", "/opt/odoo/config/odoo.conf"]
 """
 
 
@@ -152,8 +152,8 @@ spec:
     app.kubernetes.io/name: odoo-app
   ports:
     - protocol: TCP
-      port: 8070
-      targetPort: 8070
+      port: 8069
+      targetPort: 8069
 """
 with open("odoo-service.yml", "w") as os_writer:
     os_writer.write(odoo_app_service_yml_content)
