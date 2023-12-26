@@ -10,9 +10,17 @@ admin_passwd = config.get('options', 'admin_passwd')
 config = configparser.ConfigParser()
 
 
+# config['options'] = {
+#     'db_host': '18.130.231.81',
+#     'db_port': '31000',
+#     'db_user': 'odoo',
+#     'db_password': 'odoo',
+#     'addons_path': '/opt/odoo/addons',
+#     'admin_passwd': str(admin_passwd)
+# }
 config['options'] = {
-    'db_host': '18.130.231.81',
-    'db_port': '31000',
+    'db_host': 'postgres-service',
+    'db_port': '5432',
     'db_user': 'odoo',
     'db_password': 'odoo',
     'addons_path': '/opt/odoo/addons',
