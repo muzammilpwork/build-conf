@@ -72,24 +72,40 @@ spec:
 with open("postgres-pod.yml", "w") as pp_writer:
     pp_writer.write(postgres_pod_yml_content)
 
+# postgres_service_yml_content = """
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: postgres-service
+# spec:
+#   type: NodePort
+#   selector:
+#     app.kubernetes.io/name: postgres-db
+#   ports:
+#     - protocol: TCP
+#       port: 5432
+#       targetPort: 5432
+#       nodePort: 31000
+# """       
+# with open("postgres-service.yml", "w") as ps_writer:
+#     ps_writer.write(postgres_service_yml_content)
+
 postgres_service_yml_content = """
 apiVersion: v1
 kind: Service
 metadata:
   name: postgres-service
 spec:
-  type: NodePort
   selector:
     app.kubernetes.io/name: postgres-db
   ports:
     - protocol: TCP
       port: 5432
       targetPort: 5432
-      nodePort: 31000
 """
-        
 with open("postgres-service.yml", "w") as ps_writer:
     ps_writer.write(postgres_service_yml_content)
+
 
 odoo_app_pod_yml_content = f"""
 apiVersion: v1
