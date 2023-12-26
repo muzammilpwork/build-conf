@@ -126,21 +126,34 @@ with open("odoo-pod.yml", "w") as op_writer:
     op_writer.write(odoo_app_pod_yml_content)
 
 
+# odoo_app_service_yml_content = """
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: odoo-service
+# spec:
+#   type: NodePort
+#   selector:
+#     app.kubernetes.io/name: odoo-app
+#   ports:
+#     - protocol: TCP
+#       port: 8069
+#       targetPort: 8069
+#       nodePort: 31001
+#     """
 odoo_app_service_yml_content = """
 apiVersion: v1
 kind: Service
 metadata:
   name: odoo-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app.kubernetes.io/name: odoo-app
   ports:
     - protocol: TCP
-      port: 8069
-      targetPort: 8069
-      nodePort: 31001
-    """
-        
+      port: 8070
+      targetPort: 8070
+"""
 with open("odoo-service.yml", "w") as os_writer:
     os_writer.write(odoo_app_service_yml_content)
