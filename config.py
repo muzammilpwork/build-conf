@@ -20,7 +20,7 @@ config = configparser.ConfigParser()
 # }
 config['options'] = {
     'db_host': 'postgres-service2',
-    'db_port': '5432',
+    'db_port': '5433',
     'db_user': 'odoo',
     'db_password': 'odoo',
     'addons_path': '/opt/odoo/addons',
