@@ -47,12 +47,12 @@ postgres_pod_yml_content = """
 apiVersion: v1
 kind: Pod
 metadata:
-  name: postgres-db2
+  name: postgres-db
   labels:
-    app.kubernetes.io/name: postgres-db2
+    app.kubernetes.io/name: postgres-db
 spec:
   containers:
-  - name: postgres2
+  - name: postgres
     image: postgres:15
     ports:
     - containerPort: 5432
@@ -75,11 +75,11 @@ postgres_service_yml_content = """
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-service2
+  name: postgres-service
 spec:
   type: NodePort
   selector:
-    app.kubernetes.io/name: postgres-db2
+    app.kubernetes.io/name: postgres-db
   ports:
     - protocol: TCP
       port: 5432
@@ -89,33 +89,17 @@ spec:
 with open("postgres-service.yml", "w") as ps_writer:
     ps_writer.write(postgres_service_yml_content)
 
-# postgres_service_yml_content = """
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: postgres-service2
-# spec:
-#   selector:
-#     app.kubernetes.io/name: postgres-db2
-#   ports:
-#     - protocol: TCP
-#       port: 5433
-#       targetPort: 5433
-# """
-# with open("postgres-service.yml", "w") as ps_writer:
-#     ps_writer.write(postgres_service_yml_content)
-
 
 odoo_app_pod_yml_content = f"""
 apiVersion: v1
 kind: Pod
 metadata:
-  name: odoo-app2
+  name: odoo-app
   labels:
-    app.kubernetes.io/name: odoo-app2
+    app.kubernetes.io/name: odoo-app
 spec:
   containers:
-  - name: odoo-app2
+  - name: odoo-app
     image: {image_name}
     ports:
     - containerPort: 8000
@@ -129,30 +113,16 @@ odoo_app_service_yml_content = """
 apiVersion: v1
 kind: Service
 metadata:
-  name: odoo-service2
+  name: odoo-service
 spec:
   type: NodePort
   selector:
-    app.kubernetes.io/name: odoo-app2
+    app.kubernetes.io/name: odoo-app
   ports:
     - protocol: TCP
       port: 8069
       targetPort: 8069
       nodePort: 31001
     """
-# odoo_app_service_yml_content = """
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: odoo-service2
-# spec:
-#   type: LoadBalancer
-#   selector:
-#     app.kubernetes.io/name: odoo-app2
-#   ports:
-#     - protocol: TCP
-#       port: 8069
-#       targetPort: 8069
-# """
 with open("odoo-service.yml", "w") as os_writer:
     os_writer.write(odoo_app_service_yml_content)
