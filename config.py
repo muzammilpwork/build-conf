@@ -1,7 +1,5 @@
 import configparser
 
-
-
 odoo_app_config_path = './debian/odoo.conf'
 config = configparser.ConfigParser()
 config.read(odoo_app_config_path)
@@ -18,15 +16,6 @@ config['options'] = {
     'addons_path': '/opt/odoo/addons',
     'admin_passwd': str(admin_passwd)
 }
-# config['options'] = {
-#     'db_host': 'postgres-service2',
-#     'db_port': '5433',
-#     'db_user': 'odoo2',
-#     'db_password': 'odoo2',
-#     'addons_path': '/opt/odoo/addons',
-#     'admin_passwd': str(admin_passwd)
-
-# }
 
 
 with open("./config/odoo.conf", 'w') as configfile:
