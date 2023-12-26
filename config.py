@@ -12,7 +12,7 @@ config = configparser.ConfigParser()
 
 config['options'] = {
     'db_host': '18.133.120.91',
-    'db_port': '31000',
+    'db_port': '31002',
     'db_user': 'odoo',
     'db_password': 'odoo',
     'addons_path': '/opt/odoo/addons',
