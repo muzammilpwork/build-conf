@@ -55,7 +55,7 @@ spec:
   - name: postgres2
     image: postgres:15
     ports:
-    - containerPort: 5432
+    - containerPort: 5433
     env:
     - name: POSTGRES_DB
       value: postgres
@@ -99,8 +99,8 @@ spec:
     app.kubernetes.io/name: postgres-db2
   ports:
     - protocol: TCP
-      port: 5432
-      targetPort: 5432
+      port: 5433
+      targetPort: 5433
 """
 with open("postgres-service.yml", "w") as ps_writer:
     ps_writer.write(postgres_service_yml_content)
