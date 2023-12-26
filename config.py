@@ -19,7 +19,7 @@ config = configparser.ConfigParser()
 #     'admin_passwd': str(admin_passwd)
 # }
 config['options'] = {
-    'db_host': 'postgres-service',
+    'db_host': 'postgres-service2',
     'db_port': '5432',
     'db_user': 'odoo',
     'db_password': 'odoo',
