@@ -48,12 +48,12 @@ postgres_pod_yml_content = """
 apiVersion: v1
 kind: Pod
 metadata:
-  name: postgres-db
+  name: postgres-db2
   labels:
-    app.kubernetes.io/name: postgres-db
+    app.kubernetes.io/name: postgres-db2
 spec:
   containers:
-  - name: postgres
+  - name: postgres2
     image: postgres:15
     ports:
     - containerPort: 5432
@@ -94,10 +94,10 @@ postgres_service_yml_content = """
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-service
+  name: postgres-service2
 spec:
   selector:
-    app.kubernetes.io/name: postgres-db
+    app.kubernetes.io/name: postgres-db2
   ports:
     - protocol: TCP
       port: 5432
@@ -111,12 +111,12 @@ odoo_app_pod_yml_content = f"""
 apiVersion: v1
 kind: Pod
 metadata:
-  name: odoo-app
+  name: odoo-app2
   labels:
-    app.kubernetes.io/name: odoo-app
+    app.kubernetes.io/name: odoo-app2
 spec:
   containers:
-  - name: odoo-app
+  - name: odoo-app2
     image: {image_name}
     ports:
     - containerPort: 8000
@@ -145,11 +145,11 @@ odoo_app_service_yml_content = """
 apiVersion: v1
 kind: Service
 metadata:
-  name: odoo-service
+  name: odoo-service2
 spec:
   type: LoadBalancer
   selector:
-    app.kubernetes.io/name: odoo-app
+    app.kubernetes.io/name: odoo-app2
   ports:
     - protocol: TCP
       port: 8069
