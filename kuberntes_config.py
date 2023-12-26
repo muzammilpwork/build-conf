@@ -35,7 +35,7 @@ WORKDIR /opt/odoo
 COPY ./repo_code .
 
 RUN pip3 install -r  requirements.txt
-CMD ["./odoo-bin", "-c", "/opt/odoo/config/odoo.conf"]
+CMD ["./odoo-bin", "-c", "/opt/odoo/config/odoo.conf", "--xmlrpc-port=8070"]
 """
 
 
