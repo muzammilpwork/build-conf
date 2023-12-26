@@ -55,7 +55,7 @@ spec:
   - name: postgres2
     image: postgres:15
     ports:
-    - containerPort: 5433
+    - containerPort: 5432
     env:
     - name: POSTGRES_DB
       value: postgres
