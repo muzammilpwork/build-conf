@@ -7,7 +7,7 @@ dockerfile_content = f"""
 
 FROM ubuntu:22.04
 
-
+USER root
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8
