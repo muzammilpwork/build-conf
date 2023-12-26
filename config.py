@@ -24,8 +24,8 @@ config['options'] = {
     'db_user': 'odoo',
     'db_password': 'odoo',
     'addons_path': '/opt/odoo/addons',
-    'admin_passwd': str(admin_passwd),
-    'xmlrpc_port': '8070'
+    'admin_passwd': str(admin_passwd)
+
 }
 
 
