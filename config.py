@@ -2,7 +2,7 @@ import configparser
 import os
 
 
-serive_name = os.environ['APP_SERVICE_NAME']
+serive_name = os.environ['DB_SERVICE_NAME']
 
 odoo_app_config_path = './debian/odoo.conf'
 config = configparser.ConfigParser()
