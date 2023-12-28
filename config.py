@@ -1,4 +1,8 @@
 import configparser
+import os
+
+
+serive_name = os.environ['APP_SERVICE_NAME']
 
 odoo_app_config_path = './debian/odoo.conf'
 config = configparser.ConfigParser()
@@ -9,8 +13,8 @@ config = configparser.ConfigParser()
 
 
 config['options'] = {
-    'db_host': '18.133.120.91',
-    'db_port': '31002',
+    'db_host': str(serive_name),
+    'db_port': '5432',
     'db_user': 'odoo',
     'db_password': 'odoo',
     'addons_path': '/opt/odoo/addons',
