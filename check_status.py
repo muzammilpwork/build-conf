@@ -6,7 +6,7 @@ auth_token = os.environ['AUTH_TOKEN']
 db_id = os.environ['APP_POD_DB_ID']
 pod_url = os.environ['POD_URL']
 
-params = {"id": str(db_id), "url": str(pod_url)}
+params = {"id": str(db_id), "url": str(pod_url)+":8069"}
 headers = {"Authorization": f"Bearer {auth_token}"}
 
 print("########### url ", update_url)
