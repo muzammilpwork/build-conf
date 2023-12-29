@@ -1,4 +1,5 @@
 import requests
+import os
 
 update_url = os.environ['UPDATE_URL']
 auth_token = os.environ['AUTH_TOKEN']
