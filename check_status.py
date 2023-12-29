@@ -9,6 +9,10 @@ pod_url = os.environ['POD_URL']
 params = {"id": str(db_id), "url": str(pod_url)}
 headers = {"Authorization": f"Bearer {auth_token}"}
 
+print("########### url ", update_url)
+print("########### parameters ", params)
+print("########### headers ", headers)
+
 response = requests.get(update_url, params=params, headers=headers)
 
 # Check the response
