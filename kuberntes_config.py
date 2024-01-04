@@ -178,8 +178,6 @@ ingress_rule_content = f"""
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
   name: ingress-rules-for-{serive_name}
   namespace: default
 spec:
@@ -194,7 +192,7 @@ spec:
             port:
               number: 8069
         path: /
-        pathType: Exact
+        pathType: ImplementationSpecific
 """
 with open("ingress-rule.yml", "w") as ir_writer:
     ir_writer.write(ingress_rule_content)
