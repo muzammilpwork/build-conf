@@ -6,6 +6,7 @@ pod_name = os.environ['APP_POD_NAME']
 serive_name = os.environ['APP_SERVICE_NAME']
 db_pod_name = os.environ['DB_POD_NAME']
 db_serive_name = os.environ['DB_SERVICE_NAME']
+sub_domain = os.environ['SUB_DOMAIN']
 
 dockerfile_content = f"""
 
@@ -142,13 +143,27 @@ with open("odoo-pod.yml", "w") as op_writer:
 #       nodePort: 31003
 #     """
 
+# odoo_app_service_yml_content = f"""
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: {serive_name}
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     app.kubernetes.io/name: {pod_name}
+#   ports:
+#     - protocol: TCP
+#       port: 8069
+#       targetPort: 8069
+#     """
+
 odoo_app_service_yml_content = f"""
 apiVersion: v1
 kind: Service
 metadata:
   name: {serive_name}
 spec:
-  type: LoadBalancer
   selector:
     app.kubernetes.io/name: {pod_name}
   ports:
@@ -158,3 +173,28 @@ spec:
     """
 with open("odoo-service.yml", "w") as os_writer:
     os_writer.write(odoo_app_service_yml_content)
+
+ingress_rule_content = f"""
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: ingress-rules-for-hello
+  namespace: default
+spec:
+  ingressClassName: nginx-class
+  rules:
+  - host: "{sub_domain}.erp-deploy.com"
+    http:
+      paths:
+      - backend:
+          service:
+            name: {serive_name}
+            port:
+              number: 8069
+        path: /
+        pathType: Exact
+"""
+with open("ingress-rule.yml", "w") as ir_writer:
+    ir_writer.write(ingress_rule_content)
