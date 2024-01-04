@@ -180,7 +180,7 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-  name: ingress-rules-for-hello
+  name: ingress-rules-for-{serive_name}
   namespace: default
 spec:
   ingressClassName: nginx-class
