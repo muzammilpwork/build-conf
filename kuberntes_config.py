@@ -121,6 +121,8 @@ spec:
     image: {image_name}
     ports:
     - containerPort: 8000
+  imagePullSecrets:
+  - name: regcred
     """
         
 with open("odoo-pod.yml", "w") as op_writer:
