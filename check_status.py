@@ -4,7 +4,7 @@ import os
 update_url = os.environ['UPDATE_URL']
 auth_token = os.environ['AUTH_TOKEN']
 build_id = os.environ['BUILD_ID']
-pod_url = os.environ['POD_URL']
+# pod_url = os.environ['POD_URL']
 
 # params = {"id": str(db_id), "url": str(pod_url)+":8069"}
 params = {"id": str(build_id)}
