@@ -59,7 +59,7 @@ metadata:
 spec:
   containers:
   - name: {db_pod_name}
-    image: postgres:15
+    image: postgres:14
     ports:
     - containerPort: 5432
     env:
