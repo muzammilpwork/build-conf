@@ -182,6 +182,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-rules-for-{serive_name}
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
   namespace: default
 spec:
   ingressClassName: nginx-class
