@@ -46,6 +46,8 @@ sub_domain = os.environ['SUB_DOMAIN']
 dockerfile_content = f"""
 FROM odoo:16
 
+USER root
+
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8
 
