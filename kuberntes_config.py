@@ -51,23 +51,12 @@ USER root
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3 \
-    python3-pip \
-    python3-wheel \
-    libxrender-dev \
-    libxext-dev \
-    libfontconfig1 \
-    libfreetype6 \
-    fontconfig \
-    git-core \
-    gcc \
-    g++
-    
 RUN apt install postgresql-client -y
 
 COPY ./config /etc/odoo
 COPY ./custom-addons /mnt/extra-addons/custom-addons
+
+USER 1001
 """
 
 dockerfile_path = "Dockerfile"
