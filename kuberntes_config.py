@@ -48,6 +48,19 @@ FROM odoo:16
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    python3-wheel \
+    libxrender-dev \
+    libxext-dev \
+    libfontconfig1 \
+    libfreetype6 \
+    fontconfig \
+    git-core \
+    gcc \
+    g++
     
 RUN apt install postgresql-client -y
 
