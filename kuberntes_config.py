@@ -8,16 +8,49 @@ db_pod_name = os.environ['DB_POD_NAME']
 db_serive_name = os.environ['DB_SERVICE_NAME']
 sub_domain = os.environ['SUB_DOMAIN']
 
-dockerfile_content = f"""
+# dockerfile_content = f"""
 
-FROM ubuntu:22.04
+# FROM ubuntu:22.04
+
+# USER root
+
+# ENV DEBIAN_FRONTEND=noninteractive \
+#     LANG=C.UTF-8
+    
+
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+#     python3 \
+#     python3-pip \
+#     python3-wheel \
+#     libxrender-dev \
+#     libxext-dev \
+#     libfontconfig1 \
+#     libfreetype6 \
+#     fontconfig \
+#     git-core \
+#     gcc \
+#     g++
+
+# RUN apt-get install -y python3-dev libxml2-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev build-essential libssl-dev libffi-dev libmysqlclient-dev libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev
+
+# RUN apt install postgresql-client -y
+
+# WORKDIR /opt/odoo
+
+# COPY ./repo_code .
+
+# RUN pip3 install -r  requirements.txt
+# CMD ["./odoo-bin", "-c", "/opt/odoo/config/odoo.conf"]
+# """
+
+dockerfile_content = f"""
+FROM odoo:16
 
 USER root
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8
     
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
@@ -31,18 +64,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     g++
 
-RUN apt-get install -y python3-dev libxml2-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev build-essential libssl-dev libffi-dev libmysqlclient-dev libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev
-
 RUN apt install postgresql-client -y
 
-WORKDIR /opt/odoo
-
-COPY ./repo_code .
-
-RUN pip3 install -r  requirements.txt
-CMD ["./odoo-bin", "-c", "/opt/odoo/config/odoo.conf"]
+COPY ./config /etc/odoo
+COPY ./custom-addons /mnt/extra-addons/custom-addons
 """
-
 
 dockerfile_path = "Dockerfile"
 with open(dockerfile_path, "w") as dockerfile:
