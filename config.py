@@ -4,11 +4,11 @@ import os
 
 serive_name = os.environ['DB_SERVICE_NAME']
 
-odoo_app_config_path = './debian/odoo.conf'
-config = configparser.ConfigParser()
-config.read(odoo_app_config_path)
+# odoo_app_config_path = './debian/odoo.conf'
+# config = configparser.ConfigParser()
+# config.read(odoo_app_config_path)
 
-admin_passwd = config.get('options', 'admin_passwd')
+# admin_passwd = config.get('options', 'admin_passwd')
 config = configparser.ConfigParser()
 
 
@@ -17,8 +17,7 @@ config['options'] = {
     'db_port': '5432',
     'db_user': 'odoo',
     'db_password': 'odoo',
-    'addons_path': '/opt/odoo/addons',
-    'admin_passwd': str(admin_passwd)
+    'addons_path': '/mnt/extra-addons/custom-addons',
 }
 
 
