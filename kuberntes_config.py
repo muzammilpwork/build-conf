@@ -55,7 +55,6 @@ RUN apt install postgresql-client -y
 
 COPY ./config /etc/odoo
 COPY ./custom-addons /mnt/extra-addons/custom-addons
-CMD ["/usr/bin/odoo", "-c", "/etc/odoo/odoo.conf", "--stop-after-init", "-i", "base", "-e", "ODOO_MASTER_PASS=admin"]
 
 USER odoo
 """
