@@ -48,6 +48,8 @@ FROM odoo:16
 
 USER root
 
+ENV ODOO_MASTER_PASS=admin
+
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8
 
