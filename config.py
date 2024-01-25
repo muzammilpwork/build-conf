@@ -13,6 +13,7 @@ config = configparser.ConfigParser()
 
 
 config['options'] = {
+    'admin_passwd': 'abctest123',
     'db_host': str(serive_name),
     'db_port': '5432',
     'db_user': 'odoo',
