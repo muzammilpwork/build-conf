@@ -54,9 +54,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=C.UTF-8
 
 RUN apt install postgresql-client -y
-# RUN apt install sudo
-# RUN usermod -aG sudo odoo
-# RUN apt install nano
+RUN apt install sudo
+RUN usermod -aG sudo odoo
+RUN apt install nano
 
 COPY ./config /etc/odoo
 COPY ./custom-addons /mnt/extra-addons/custom-addons
