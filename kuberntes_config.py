@@ -53,9 +53,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN apt install postgresql-client -y
 
-COPY ./config /opt
+COPY ./config /etc/odoo
 COPY ./custom-addons /mnt/extra-addons/custom-addons
-CMD ["odoo", "-c", "/opt/odoo.conf"]
 """
 
 dockerfile_path = "Dockerfile"
