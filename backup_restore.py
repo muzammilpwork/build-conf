@@ -5,7 +5,7 @@ import os
 existing_build_url = os.environ['EXISTING_BUILD_URL']
 new_build_url = os.environ['SUB_DOMAIN']
 
-url = f"{existing_build_url}/web/database/backup"
+url = f"https://{existing_build_url}/web/database/backup"
 data = {
     "master_pwd": 'abctest123',
     "name": 'postgres',
