@@ -14,7 +14,7 @@ data = {
 response = requests.post(url, data=data)
 with open('backup.zip', 'wb') as writer:
     writer.write(response.content)
-
+print("Data has been backed up......")
 
 with open('backup.zip', 'rb') as reader:
     file_content = reader.read()
@@ -25,5 +25,5 @@ restore_payload = {
 
 url = f'{new_build_url}.erp-deploy.com/web/database/restore'
 files = {'backup_file': file_content}
-
 restore_response = requests.post(url, data=restore_payload, files=files)
+print("Data has been restored......")
