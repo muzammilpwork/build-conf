@@ -38,6 +38,7 @@ spec:
   containers:
   - name: {pod_name}
     image: {image_name}
+    imagePullPolicy: Always
     ports:
     - containerPort: 8000
   imagePullSecrets:
