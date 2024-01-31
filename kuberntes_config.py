@@ -7,7 +7,7 @@ serive_name = os.environ['APP_SERVICE_NAME']
 db_pod_name = os.environ['DB_POD_NAME']
 db_serive_name = os.environ['DB_SERVICE_NAME']
 sub_domain = os.environ['SUB_DOMAIN']
-
+odoo_version = os.environ['ODOO_VERSION']
 # dockerfile_content = f"""
 
 # FROM ubuntu:22.04
@@ -44,7 +44,7 @@ sub_domain = os.environ['SUB_DOMAIN']
 # """
 
 dockerfile_content = f"""
-FROM odoo:16
+FROM odoo:{odoo_version}
 
 USER root
 
