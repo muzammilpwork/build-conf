@@ -4,11 +4,12 @@ image_name = os.environ['IMAGE_NAME']
 pod_name = os.environ['APP_POD_NAME']
 serive_name = os.environ['APP_SERVICE_NAME']
 db_serive_name = os.environ['DB_SERVICE_NAME']
+odoo_version = os.environ['ODOO_VERSION']
 
 
 
 dockerfile_content = f"""
-FROM odoo:16
+FROM odoo:{odoo_version}
 
 USER root
 
