@@ -14,4 +14,4 @@ else
     echo "Repository already exists with URI: $repository_uri"
 fi
 
-export repository_uri
+export repository_uri=$repository_uri
