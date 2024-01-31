@@ -1,15 +1,12 @@
 #!/bin/bash
 
-repo_name="test"
-region_name="eu-west-2"
-
 # Check if the repository already exists
-repo_info=$(aws ecr describe-repositories --repository-names $repo_name --region $region_name 2>/dev/null)
+repo_info=$(aws ecr describe-repositories --repository-names $ECR_REPO_NAME --region eu-west-2 2>/dev/null)
 
 # If the repository does not exist, create it
 if [ -z "$repo_info" ]; then
     echo "Repository does not exist. Creating..."
-    create_response=$(aws ecr create-repository --repository-name $repo_name --region $region_name)
+    create_response=$(aws ecr create-repository --repository-name $ECR_REPO_NAME --region eu-west-2)
     repository_uri=$(echo $create_response | jq -r '.repository.repositoryUri')
     echo "Repository created with URI: $repository_uri"
 else
