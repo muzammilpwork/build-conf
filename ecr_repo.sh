@@ -16,3 +16,5 @@ else
     repository_uri=$(echo $repo_info | jq -r '.repositories[0].repositoryUri')
     echo "Repository already exists with URI: $repository_uri"
 fi
+
+export repository_uri
