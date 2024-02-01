@@ -5,7 +5,7 @@ pod_name = os.environ['APP_POD_NAME']
 serive_name = os.environ['APP_SERVICE_NAME']
 db_serive_name = os.environ['DB_SERVICE_NAME']
 odoo_version = os.environ['ODOO_VERSION']
-# repository_uri = os.environ['repository_uri']
+repository_uri = os.environ['repository_uri']
 
 
 
@@ -39,7 +39,7 @@ metadata:
 spec:
   containers:
   - name: {pod_name}
-    image: {image_name}
+    image: {repository_uri}:{image_name}
     imagePullPolicy: Always
     ports:
     - containerPort: 8000
