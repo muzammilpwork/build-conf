@@ -8,7 +8,7 @@ db_pod_name = os.environ['DB_POD_NAME']
 db_serive_name = os.environ['DB_SERVICE_NAME']
 sub_domain = os.environ['SUB_DOMAIN']
 odoo_version = os.environ['ODOO_VERSION']
-# repository_uri = os.environ['repository_uri']
+repository_uri = os.environ['repository_uri']
 
 # dockerfile_content = f"""
 
@@ -134,7 +134,7 @@ metadata:
 spec:
   containers:
   - name: {pod_name}
-    image: {image_name}
+    image: {repository_uri}:{image_name}
     ports:
     - containerPort: 8000
   imagePullSecrets:
