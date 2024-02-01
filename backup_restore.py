@@ -19,7 +19,7 @@ print("Data has been backed up......")
 with open('backup.zip', 'rb') as reader:
     file_content = reader.read()
 restore_payload = {
-    'name': 'postgres2',
+    'name': 'postgres',
     'master_pwd': 'abctest123',
 }
 
