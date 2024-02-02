@@ -27,3 +27,4 @@ url = f'https://{new_build_url}.erp-deploy.com/web/database/restore'
 files = {'backup_file': file_content}
 restore_response = requests.post(url, data=restore_payload, files=files)
 print("Data has been restored and response is: ", restore_response.content)
+
