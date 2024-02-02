@@ -13,12 +13,13 @@ config = configparser.ConfigParser()
 
 
 config['options'] = {
+    'without_demo': 'True',
     'admin_passwd': 'abctest123',
     'db_host': str(serive_name),
     'db_port': '5432',
     'db_user': 'odoo',
     'db_password': 'odoo',
-    'db_name': 'postgres',
+    'db_name': 'test',
     'addons_path': '/mnt/extra-addons/custom-addons',
 }
 
