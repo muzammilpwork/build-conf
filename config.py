@@ -19,7 +19,7 @@ config['options'] = {
     'db_port': '5432',
     'db_user': 'odoo',
     'db_password': 'odoo',
-    'db_name': 'test',
+    'db_name': 'noman123',
     'addons_path': '/mnt/extra-addons/custom-addons',
 }
 
