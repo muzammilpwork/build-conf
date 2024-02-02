@@ -8,7 +8,7 @@ new_build_url = os.environ['SUB_DOMAIN']
 url = f"https://{existing_build_url}/web/database/backup"
 data = {
     "master_pwd": 'abctest123',
-    "name": 'test',
+    "name": 'noman123',
     "backup_format": "zip"
 }
 response = requests.post(url, data=data)
@@ -19,7 +19,7 @@ print("Data has been backed up......")
 with open('backup.zip', 'rb') as reader:
     file_content = reader.read()
 restore_payload = {
-    'name': 'test',
+    'name': 'noman123',
     'master_pwd': 'abctest123',
 }
 
