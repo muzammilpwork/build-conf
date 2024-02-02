@@ -57,6 +57,7 @@ RUN apt install postgresql-client -y
 
 COPY ./config /etc/odoo
 COPY ./custom-addons /mnt/extra-addons/custom-addons
+USER odoo
 """
 
 dockerfile_path = "Dockerfile"
