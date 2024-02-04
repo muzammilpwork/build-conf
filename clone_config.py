@@ -14,6 +14,7 @@ config['options'] = {
     'db_user': 'odoo',
     'db_password': 'odoo',
     'addons_path': '/mnt/extra-addons/custom-addons',
+    'data_dir': '/opt/odoo',
 }
 
 
