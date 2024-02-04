@@ -25,9 +25,10 @@ restore_payload = {
 
 url = f'https://{new_build_url}.erp-deploy.com/web/database/restore'
 files = {'backup_file': file_content}
+count = 0
 while True:
     restore_response = requests.post(url, data=restore_payload, files=files)
-    if restore_response.status_code == 200:
+    if restore_response.status_code == 200 or count == 3:
         print("Data has been restored and response is: ", restore_response.content)
         break
     time.sleep(10)
