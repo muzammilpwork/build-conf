@@ -1,5 +1,6 @@
 import requests
 import os
+import time 
 
 existing_build_url = os.environ['EXISTING_BUILD_URL']
 new_build_url = os.environ['SUB_DOMAIN']
@@ -24,5 +25,9 @@ restore_payload = {
 
 url = f'https://{new_build_url}.erp-deploy.com/web/database/restore'
 files = {'backup_file': file_content}
-restore_response = requests.post(url, data=restore_payload, files=files)
-print("Data has been restored and response is: ", restore_response.content)
+while True:
+    restore_response = requests.post(url, data=restore_payload, files=files)
+    if restore_response.status_code == 200:
+        print("Data has been restored and response is: ", restore_response.content)
+        break
+    time.sleep(10)
