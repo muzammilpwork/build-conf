@@ -14,7 +14,7 @@ data = {
 response = requests.post(url, data=data)
 with open('backup.zip', 'wb') as writer:
     writer.write(response.content)
-print("Data has been backed up and response is: ", response.content)
+print("Data has been backed up and response is: ", response.status_code)
 
 with open('backup.zip', 'rb') as reader:
     file_content = reader.read()
