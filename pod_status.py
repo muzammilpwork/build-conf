@@ -1,5 +1,7 @@
 import subprocess
 import time
+import os
+
 pod_name = os.environ['APP_POD_NAME']
 
 command = 'kubectl get pod ' + str(pod_name) + ' -o jsonpath="{.status.phase}"'
