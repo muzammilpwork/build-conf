@@ -1,4 +1,4 @@
-import requests
+status_update_urlimport requests
 import os
 
 update_url = os.environ['UPDATE_URL']
@@ -6,7 +6,7 @@ auth_token = os.environ['AUTH_TOKEN']
 build_id = os.environ['BUILD_ID']
 
 
-params = {"id": str(build_id)}
+params = {"id": str(build_id), "type" : "delete"}
 headers = {"Authorization": f"Bearer {auth_token}"}
 
 response = requests.get(update_url, params=params, headers=headers)
