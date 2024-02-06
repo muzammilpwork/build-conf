@@ -11,7 +11,7 @@ while count < 3:
     if pod_status == "Running":
         break
     else:
-      time.sleep(10)
+      time.sleep(20)
       count += 1
 
 if pod_status != "Running":
