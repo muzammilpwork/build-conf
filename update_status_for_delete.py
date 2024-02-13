@@ -1,4 +1,4 @@
-status_update_urlimport requests
+import requests
 import os
 
 update_url = os.environ['UPDATE_URL']
