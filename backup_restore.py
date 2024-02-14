@@ -4,6 +4,7 @@ import time
 
 existing_build_url = os.environ['EXISTING_BUILD_URL']
 new_build_url = os.environ['SUB_DOMAIN']
+live_domain = os.environ['LIVE_DOMAIN']
 
 url = f"{existing_build_url}/web/database/backup"
 data = {
@@ -23,7 +24,7 @@ restore_payload = {
     'master_pwd': 'abctest123',
 }
 
-url = f'https://{new_build_url}.erp-deploy.com/web/database/restore'
+url = f'https://{new_build_url}{live_domain}/web/database/restore'
 files = {'backup_file': file_content}
 count = 0
 while True:
