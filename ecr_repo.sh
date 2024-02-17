@@ -12,6 +12,7 @@ if [ -z "$repo_info" ]; then
 else
     repository_uri=$(echo $repo_info | jq -r '.repositories[0].repositoryUri')
     echo "Repository already exists with URI: $repository_uri"
+    aws ecr batch-delete-image --repository-name $ECR_REPO_NAME --image-ids imageTag=$IMAGE_NAME
 fi
 
 export repository_uri=$repository_uri
