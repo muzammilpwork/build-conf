@@ -10,7 +10,7 @@ repository_uri = os.environ['repository_uri']
 
 
 dockerfile_content = f"""
-FROM odoo:{odoo_version}
+FROM 633875345928.dkr.ecr.eu-west-2.amazonaws.com/odoo:{odoo_version}
 
 USER root
 
