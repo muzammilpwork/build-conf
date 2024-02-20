@@ -3,6 +3,7 @@ import os
 
 
 serive_name = os.environ['DB_SERVICE_NAME']
+db_name = os.environ['DB_NAME']
 
 # odoo_app_config_path = './debian/odoo.conf'
 # config = configparser.ConfigParser()
@@ -19,7 +20,7 @@ config['options'] = {
     'db_port': '5432',
     'db_user': 'odoo',
     'db_password': 'odoo',
-    'db_name': 'noman123',
+    'db_name': str(db_name),
     'addons_path': '/mnt/extra-addons/custom-addons',
     'data_dir': '/var/lib/odoo',
 }
