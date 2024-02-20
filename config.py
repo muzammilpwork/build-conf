@@ -4,6 +4,7 @@ import os
 
 serive_name = os.environ['DB_SERVICE_NAME']
 db_name = os.environ['DB_NAME']
+without_demo = os.environ['WITHOUT_DEMO']
 
 # odoo_app_config_path = './debian/odoo.conf'
 # config = configparser.ConfigParser()
@@ -14,7 +15,7 @@ config = configparser.ConfigParser()
 
 
 config['options'] = {
-    'without_demo': 'True',
+    'without_demo': str(without_demo),
     'admin_passwd': 'abctest123',
     'db_host': str(serive_name),
     'db_port': '5432',
