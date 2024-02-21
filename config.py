@@ -24,6 +24,7 @@ config['options'] = {
     'db_name': str(db_name),
     'addons_path': '/mnt/extra-addons/custom-addons',
     'data_dir': '/var/lib/odoo',
+    'list_db': 'True',
 }
 
 
